@@ -2,7 +2,7 @@
 nlp_env/
 venv/
 env/
-.env
+# .env
 __pycache__/
 *.pyc
 *.pyo
