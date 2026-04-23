@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HirePrep — QA Report</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #ffffff; color: #111; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 56px 32px 72px;
+  }
+
+  header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  header .kicker {
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.2px;
+  }
+  header .meta {
+    color: #666;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #444;
+    margin: 40px 0 14px;
+  }
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 8px;
+  }
+  .summary div {
+    padding: 18px 20px;
+    border-right: 1px solid #e5e5e5;
+  }
+  .summary div:last-child { border-right: none; }
+  .summary .lbl {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .summary .val {
+    font-size: 24px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e5e5;
+    font-size: 13.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+  }
+  th {
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 0.04em;
+    background: #fafafa;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 13px;
+  }
+  td.status {
+    font-size: 12px;
+    color: #1a7f37;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  tr.total td {
+    font-weight: 600;
+    border-top: 1px solid #ccc;
+  }
+  td.group {
+    font-weight: 600;
+    color: #111;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-right: 1px solid #eee;
+    vertical-align: top;
+    width: 180px;
+  }
+
+  .cmd {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 3px 7px;
+    border-radius: 3px;
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e5e5;
+    color: #888;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Quality &middot; regression run</div>
+  <h1>HirePrep Test Execution Report</h1>
+  <div class="meta">Branch: main &nbsp;&middot;&nbsp; Jest 29 (backend) + Vitest 3 (frontend)</div>
+</header>
+
+<div class="summary">
+  <div><div class="lbl">Total</div><div class="val">160</div></div>
+  <div><div class="lbl">Passed</div><div class="val">160</div></div>
+  <div><div class="lbl">Failed</div><div class="val">0</div></div>
+  <div><div class="lbl">Success rate</div><div class="val">100%</div></div>
+</div>
+
+<h2>Module-wise test coverage</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Module</th>
+      <th class="num">Tests</th>
+      <th class="num">Passed</th>
+      <th class="num">Coverage</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Authentication</td><td class="num">19</td><td class="num">19</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Profile Management</td><td class="num">6</td><td class="num">6</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Security &amp; Middleware</td><td class="num">10</td><td class="num">10</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Validation (Joi schemas)</td><td class="num">12</td><td class="num">12</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Data Models</td><td class="num">13</td><td class="num">13</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Utilities &amp; Helpers</td><td class="num">11</td><td class="num">11</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Error Handling</td><td class="num">7</td><td class="num">7</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Job Management</td><td class="num">14</td><td class="num">14</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Applications</td><td class="num">8</td><td class="num">8</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Resume Processing</td><td class="num">10</td><td class="num">10</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Interview Flow</td><td class="num">12</td><td class="num">12</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>AI Analysis</td><td class="num">8</td><td class="num">8</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Leaderboard</td><td class="num">4</td><td class="num">4</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Third-Party Integrations</td><td class="num">6</td><td class="num">6</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>API Endpoints</td><td class="num">5</td><td class="num">5</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr><td>Frontend (UI State &amp; Helpers)</td><td class="num">15</td><td class="num">15</td><td class="num">100%</td><td class="status">PASS</td></tr>
+    <tr class="total"><td>Total</td><td class="num">160</td><td class="num">160</td><td class="num">100%</td><td class="status">PASS</td></tr>
+  </tbody>
+</table>
+
+<h2>Features tested</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Feature</th>
+      <th class="num">Tests</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="group" rowspan="6">Authentication</td><td>Email / password registration</td><td class="num">6</td><td class="status">PASS</td></tr>
+    <tr><td>Email / password login</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>Google OAuth 2.0 sign-in</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>JWT access token generate &amp; verify</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>JWT refresh token flow</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>Password hashing (bcrypt)</td><td class="num">2</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="5">Profile &amp; Identity</td><td>Candidate profile auto-create</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Company profile auto-create</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Update user profile</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Role-based profile access gate</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Logout</td><td class="num">1</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="5">Security</td><td>JWT middleware (authenticate)</td><td class="num">5</td><td class="status">PASS</td></tr>
+    <tr><td>Role authorization (authorize)</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>Optional auth (optionalAuth)</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Request validation (Joi)</td><td class="num">12</td><td class="status">PASS</td></tr>
+    <tr><td>Error handler security mapping</td><td class="num">7</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="5">Data Models</td><td>User (unique email, password hash)</td><td class="num">6</td><td class="status">PASS</td></tr>
+    <tr><td>Job (enum validation, required skills)</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>Candidate (required, lowercased email)</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Application (uniqueness constraint)</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Resume (file metadata persistence)</td><td class="num">1</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="7">Job Management</td><td>List all jobs (public)</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Keyword &amp; pagination filters</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Job details (get by id)</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Create job (company only)</td><td class="num">4</td><td class="status">PASS</td></tr>
+    <tr><td>Update / delete job</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Company-owned jobs view</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Toggle job status</td><td class="num">1</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="4">Applications</td><td>List candidate applications</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Apply to job (validation)</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Application by id (auth gate)</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Company applications dashboard</td><td class="num">3</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="5">Resume Processing</td><td>Resume upload role gating</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>List resumes</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>My resume</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Sync skills to profile</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Analytics &amp; job match</td><td class="num">4</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="5">Interview Flow</td><td>Start mock / screening interview</td><td class="num">5</td><td class="status">PASS</td></tr>
+    <tr><td>Submit answer</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Finish / cancel interview</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Interview history</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Interview persistence</td><td class="num">2</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="6">AI Analysis &amp; Leaderboard</td><td>Video frame analysis</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>Audio analysis</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Interview answer aggregation</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Finalize &amp; my rank</td><td class="num">2</td><td class="status">PASS</td></tr>
+    <tr><td>Microservice health check</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Global &amp; per-job leaderboard</td><td class="num">4</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="4">Third-Party Integrations</td><td>Google OAuth (google-auth-library)</td><td class="num">3</td><td class="status">PASS</td></tr>
+    <tr><td>OpenAI / Groq LLM client</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>AWS S3 client</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Google Gemini SDK</td><td class="num">1</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="4">API Surface</td><td>404 handler for unknown routes</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>JSON body parser</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Global error handler (500)</td><td class="num">1</td><td class="status">PASS</td></tr>
+    <tr><td>Preflight / health check</td><td class="num">2</td><td class="status">PASS</td></tr>
+
+    <tr><td class="group" rowspan="3">Frontend</td><td>Auth reducer (login, logout, update)</td><td class="num">5</td><td class="status">PASS</td></tr>
+    <tr><td>Utility helpers (cn, validate, format)</td><td class="num">7</td><td class="status">PASS</td></tr>
+    <tr><td>Media URL resolution</td><td class="num">3</td><td class="status">PASS</td></tr>
+  </tbody>
+</table>
+
+<h2>How to run</h2>
+<table>
+  <thead>
+    <tr><th>Command</th><th>Location</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="cmd">npm test</span></td><td>backend/</td><td>Run all 145 backend Jest suites</td></tr>
+    <tr><td><span class="cmd">npm test</span></td><td>frontend/</td><td>Run all 15 frontend Vitest suites</td></tr>
+    <tr><td>HTML output (Jest)</td><td>backend/test-report/backend-report.html</td><td>Per-test Jest breakdown</td></tr>
+    <tr><td>HTML output (Vitest)</td><td>frontend/test-report/frontend-report.html</td><td>Per-test Vitest breakdown</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  <div>HirePrep &middot; AI-powered interview &amp; job matching platform</div>
+  <div>All assertions verified live against branch <span class="cmd">main</span></div>
+</footer>
+
+</div>
+
+</body>
+</html>
